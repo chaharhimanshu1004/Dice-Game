@@ -1,11 +1,13 @@
 
 import './App.css';
-import Home from './components/Home';
+import Home from './Pages/Home';
+import Game from './Pages/Game';
 
 function App() {
   return (
     <div>
-      <Home></Home>
+      {/* <Home></Home> */}
+      <Game></Game>
 
      
       

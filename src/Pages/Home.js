@@ -16,7 +16,6 @@ export default function Home() {
                         <div className='ml-[300px]'>
                             <button className="border w-[220px] h-[44px] rounded-[5px] bg-[rgba(0,0,0,1)] text-white text-lg font-bold">Play Now</button>
                         </div>
-
                     </div>
 
 
