@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 
-
-
 export default function Game() {
     const [currentNum,setCurrentNum] = useState(1);
     const [userNum,setUserNum] = useState(undefined);
@@ -39,10 +37,6 @@ export default function Game() {
         setActiveState(null);
         changeColor();
     }
-    console.log("userNum: ",userNum);
-    console.log("diceNum: ",currentNum);
-    console.log("score: ",score);
-    console.log("       ");
     function handleClick(e){
         setUserNum(e.target.value);
         setActiveState(e.target.value);
@@ -62,7 +56,7 @@ export default function Game() {
     function resetSc(){
         setScore(0);
     }
-    console.log(showRules);
+
     
   return (
 <div>

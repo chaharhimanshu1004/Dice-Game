@@ -22,8 +22,6 @@ export default function Home() {
                             <button className=" border w-[220px] h-[44px] rounded-[5px] bg-[rgba(0,0,0,1)] text-white text-lg font-bold" onClick={handleClick}>Play Now</button>
                         </div>
                     </div>
-
-
                 </div>
 
             </div>
