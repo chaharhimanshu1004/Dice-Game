@@ -1,7 +1,12 @@
 import React from 'react'
+import {useNavigate } from 'react-router-dom'
 import dices from '../assets/dices.png'
 
 export default function Home() {
+    const navigate = useNavigate();
+    function handleClick(){
+        navigate('/game');
+    }
     return (
         <div>
             <div className='flex gap-[5px]' style={{ width: "1182px", height: "522px", marginTop: "180px", marginLeft: "129px" }}>
@@ -14,7 +19,7 @@ export default function Home() {
                             DICE GAME
                         </div>
                         <div className='ml-[300px]'>
-                            <button className="border w-[220px] h-[44px] rounded-[5px] bg-[rgba(0,0,0,1)] text-white text-lg font-bold">Play Now</button>
+                            <button className=" border w-[220px] h-[44px] rounded-[5px] bg-[rgba(0,0,0,1)] text-white text-lg font-bold" onClick={handleClick}>Play Now</button>
                         </div>
                     </div>
 
