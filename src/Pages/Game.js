@@ -4,10 +4,18 @@ import { useState } from 'react';
 
 
 export default function Game() {
+    const [currentNum,setCurrentNum] = useState(1);
 
     function generateRandom(){
-        let num=  Math.floor(Math.random() * 6) + 1;
+        return Math.floor(Math.random() * 6) + 1;
     }
+    function setTostate(){
+        const randomNum = generateRandom();
+        setCurrentNum((prev)=>randomNum);
+    }
+    console.log(currentNum);
+    
+
     
   return (
 
@@ -36,8 +44,8 @@ export default function Game() {
         </div>
         <div className='max-w-[250px] max-h-[449px] mt-[70px] ml-[595px] flex flex-col items-center justify-center'>
             <div className='max-w-[170px] max-h-[160px]'>
-                <button>
-                    <img src='/images/assets/dice2.png' alt="cube image" />
+                <button onClick={setTostate}>
+                    <img src ={`/images/assets/dice${currentNum}.png`} alt="cube image" />
                 </button>   
             </div>
             <div className='ml-1'>
