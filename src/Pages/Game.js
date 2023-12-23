@@ -8,7 +8,8 @@ export default function Game() {
     const [userNum,setUserNum] = useState(undefined);
     const [activeState,setActiveState] = useState(null);
     const [score,setScore] = useState(0);
-    const [error,setError] = useState(false);
+    const [shorRules,setShowRules] = useState(false);
+    const [error,setError] = useState("");
     const[btnColor,setBtnColor] = useState([
         {bg:'rgba(255,255,255,1)',text:'black'},
         {bg:'rgba(255,255,255,1)',text:'black'},
@@ -23,8 +24,8 @@ export default function Game() {
     }
     function setTostate(e){
         
-        if(!userNum){
-            setError(true);
+        if(!activeState){
+            setError("You have not selected any number");
             return;
         }
         setError(false);
@@ -74,9 +75,10 @@ export default function Game() {
                     <p className='mt-[-35px]' style={{fontSize:"24px",fontFamily:"poppins",fontWeight:"500"}} >Total Score</p>
                 </div>
             </div>
-            
+
             
             <div className='w-[552px] h-[138px] '>
+                <p style={{color:'red'}} className='ml-[260px] font-semibold text-lg'>{error}</p>
                 <div className='flex gap-[30px] '>
                 <button value='1' onClick={handleClick}  style={{backgroundColor:btnColor[0].bg,color:btnColor[0].text}} className=' border-[1px] border-black w-[72px] h-[72px] font-bold'>1</button>
                 <button value='2' onClick={handleClick}  style={{backgroundColor:btnColor[1].bg,color:btnColor[1].text}}  className='border-[1px]  border-black w-[72px] h-[72px] font-bold'>2</button>
@@ -105,7 +107,7 @@ export default function Game() {
                     <button onClick={resetSc} style={{fontFamily:"poppins",fontWeight:"600",padding:"10px 15px 10px 15px"}} className='w-[157px] rounded-sm border-[1px] border-black'>Reset Score</button>
 
                 </div>
-                <div className='text-white rounded-sm bg-[rgba(0,0,0,1)]'>
+                <div onClick={()=>setShowRules(true)} className='text-white rounded-sm bg-[rgba(0,0,0,1)]'>
                     <button  style={{fontFamily:"poppins",fontWeight:"600",padding:"10px 15px 10px 15px"}} className='w-[157px] rounded-sm border-[1px] border-black'>Show rules</button>
 
                 </div>
