@@ -8,7 +8,7 @@ export default function Game() {
     const [userNum,setUserNum] = useState(undefined);
     const [activeState,setActiveState] = useState(null);
     const [score,setScore] = useState(0);
-    const [shorRules,setShowRules] = useState(false);
+    const [showRules,setShowRules] = useState(false);
     const [error,setError] = useState("");
     const[btnColor,setBtnColor] = useState([
         {bg:'rgba(255,255,255,1)',text:'black'},
@@ -62,10 +62,11 @@ export default function Game() {
     function resetSc(){
         setScore(0);
     }
+    console.log(showRules);
     
   return (
-
-    // 6 values --->> sirf ek value ko hi change to kaise??
+<div>
+    {/* // 6 values --->> sirf ek value ko hi change to kaise?? */}
 
     <div>
         <div className='flex gap-[593px] w-[1280px] h-[151px] mt-[64px] ml-[80px]'>
@@ -107,14 +108,31 @@ export default function Game() {
                     <button onClick={resetSc} style={{fontFamily:"poppins",fontWeight:"600",padding:"10px 15px 10px 15px"}} className='w-[157px] rounded-sm border-[1px] border-black'>Reset Score</button>
 
                 </div>
-                <div onClick={()=>setShowRules(true)} className='text-white rounded-sm bg-[rgba(0,0,0,1)]'>
+                <div onClick={()=>setShowRules((prev)=>!prev)} className='text-white rounded-sm bg-[rgba(0,0,0,1)]'>
                     <button  style={{fontFamily:"poppins",fontWeight:"600",padding:"10px 15px 10px 15px"}} className='w-[157px] rounded-sm border-[1px] border-black'>Show rules</button>
-
                 </div>
             </div>
 
         </div>
+        
 
     </div>
+    {
+        showRules && 
+        <div style={{background:"rgba(251, 241, 241, 1)"}} className='mt-3  flex flex-col  w-[749px] h-[140px] ml-[370px] '>
+            <div>
+                <h1 className='font-bold text-lg mt-2 ml-4'>How to play dice game</h1>
+            </div>
+            <div className=' w-[754px] mt-2 h-[108px]'>
+                <p className='text-sm ml-4'>Select any number</p>
+                <p className='text-sm ml-4'>Click on dice image</p>
+                <p className='text-sm ml-4'>After click on  dice  if selected number is equal to dice number you will get same point as dice if you get wrong guess then  2 point will be dedcuted  </p>
+            </div>
+        </div>
+        
+    }
+    </div>
+    
+
   )
 }
